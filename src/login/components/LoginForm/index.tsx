@@ -2,23 +2,29 @@
 
 import { Form, TextField, Button } from "@/common";
 import useForm from "@/common/hooks/useForm";
+import { FormEvent } from "react";
+
 
 export default function LoginForm() {
-  const { values, handleInputChange } = useForm({
+  const { values, handleInputChange, errors, handleValidate } = useForm({
     email: "",
     password: "",
   });
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleValidate();
+  }
+
   return (
-    <Form className="flex flex-col mt-5 gap-5">
+    <Form className="flex flex-col mt-5 gap-5" onSubmit={handleSubmit}>
       <TextField
         type="email"
         placeholder="Email"
         name="email"
         value={values.email}
         onChange={handleInputChange}
-        isError
-        error="Enter a valid email or phone number"
+        error={errors.email}
       />
       <TextField
         type="password"
@@ -26,10 +32,10 @@ export default function LoginForm() {
         name="password"
         value={values.password}
         onChange={handleInputChange}
-        isError
-        error="The password must be between 4 to 16 characters"
+        error={errors.password}
       />
       <Button text="Sign in" variant="primary" type="submit" />
     </Form>
   );
 }
+
