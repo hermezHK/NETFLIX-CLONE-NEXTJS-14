@@ -7,10 +7,11 @@ interface Props {
   type?: string;
   placeholder?: string;
   id?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   value?: string;
   theme: Theme;
   error?: string;
+  onBlur?: () => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function TextField(props: Props) {

@@ -25,6 +25,7 @@ export default function LoginForm() {
         value={values.email}
         onChange={handleInputChange}
         error={errors.email}
+        onBlur={() => handleValidate("email")}
       />
       <TextField
         type="password"
@@ -33,6 +34,7 @@ export default function LoginForm() {
         value={values.password}
         onChange={handleInputChange}
         error={errors.password}
+        onBlur={() => handleValidate("password")}
       />
       <Button text="Sign in" variant="primary" type="submit" />
     </Form>
