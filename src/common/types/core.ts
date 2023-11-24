@@ -7,10 +7,20 @@ export type Variant =
   | "success"
   | "ligth"
   | "info"
+  | "transparent"
   | "dark"
-  | "link"
+  | "link";
+
+export type TextVariant =
+  | "xs"
+  | "sm"
+  | "md"
+  | "lg"
+  | "xl"
+  | "2xl"
+  | "3xl"
+  | "4xl";
 
 export type ButtonVariant = "submit" | "reset" | "button";
 
 export type Theme = "dark" | "light";
-

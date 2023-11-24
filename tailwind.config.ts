@@ -26,6 +26,7 @@ const config: Config = {
         "netflix-color-error": "#e87c03",
         "netflix-placeholder": "#8c8c8c",
         "netflix-color-gray": "#737373",
+        "netflix-color-gray-light": "#6d6d6e",
       },
     },
   },
