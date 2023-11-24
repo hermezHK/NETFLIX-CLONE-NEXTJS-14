@@ -34,7 +34,14 @@ export default function NavBar() {
           )}
         >
           <div>
-            <Image src="/images/logo.png" alt="logo" width={140} height={100} />
+            <Link href="/">
+              <Image
+                src="/images/logo.png"
+                alt="logo"
+                width={140}
+                height={100}
+              />
+            </Link>
           </div>
           <ul className="flex gap-5">
             {items.map((item) => (
