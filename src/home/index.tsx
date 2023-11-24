@@ -5,6 +5,8 @@ export default function HomePage() {
     <main>
       <Hero isHasVideo />
       <Tiles />
+      <Tiles />
+      <Tiles />
     </main>
   );
 }
