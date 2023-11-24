@@ -25,7 +25,7 @@ export default function Hero({ isHasVideo }: Props) {
           />
         )}
       </div>
-      <div className="absolute flex flex-col w-2/5 justify-center items-start px-20 h-full">
+      <div className="absolute flex flex-col w-full md:w-3/5 xl:w-2/4 justify-center items-start px-5 md:px-20 h-full">
         <Image
           src="/images/title.webp"
           alt="title"
@@ -38,7 +38,7 @@ export default function Hero({ isHasVideo }: Props) {
           Earth over billions of years comes to life in this documentary series
           about nature.
         </p>
-        <div className="flex justify-between w-3/4 gap-5 mt-3">
+        <div className="flex justify-between w-full md:w-3/4 gap-5 mt-3">
           <Button text="Play" leftIcon="/icons/play.svg" textVariant="md" />
           <Button
             text="Info"
@@ -47,6 +47,9 @@ export default function Hero({ isHasVideo }: Props) {
             textVariant="md"
           />
         </div>
+      </div>
+      <div className="absolute right-0 border-l-2  bottom-[10%] md:bottom-[20%] bg-black/70 py-2 px-10">
+        16+
       </div>
     </div>
   );
