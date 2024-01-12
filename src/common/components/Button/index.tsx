@@ -1,4 +1,4 @@
-import { Variant, TextVariant, ButtonVariant } from "@/common";
+import { Variant, TextVariant, ButtonVariant, Size } from "@/common";
 import Image from "next/image";
 
 interface Props {
@@ -6,6 +6,7 @@ interface Props {
   onClick?: () => void;
   text?: string;
   variant: Variant;
+  size: Size;
   textVariant: TextVariant;
   leftIcon?: string;
   rightIcon?: string;
@@ -20,6 +21,7 @@ export default function Button({
   type,
   onClick,
   variant,
+  size,
   textVariant,
   leftIcon,
   rightIcon,
@@ -37,11 +39,17 @@ export default function Button({
     transparent: "bg-netflix-color-gray-light/80 text-white",
   };
 
+  const sizes = {
+    small: "py-2 px-2",
+    medium: "py-4 px-5",
+    large: "py-5 px-10",
+  };
+
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${colors[variant]} py-3 rounded font-semibold w-full flex items-center justify-center gap-2`}
+      className={`${colors[variant]} ${sizes[size]} rounded font-semibold w-full flex items-center justify-center gap-2`}
     >
       {leftIcon && <Image src={leftIcon} alt="icon" width={24} height={24} />}
       <span className={`text-${textVariant}`}>{text}</span>
@@ -53,4 +61,5 @@ export default function Button({
 Button.defaultProps = {
   variant: "default",
   textVariant: "sm",
+  size: "medium",
 };

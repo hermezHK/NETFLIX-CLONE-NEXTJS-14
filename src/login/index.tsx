@@ -13,7 +13,7 @@ export default function LoginPage() {
             First time on netflix?
           </span>
           <span>
-            <Link href={"/"}> Subscribe now.</Link>
+            <Link href={"/signup"}> Subscribe now.</Link>
           </span>
         </div>
         <p className="text-netflix-placeholder text-xs mt-3">
