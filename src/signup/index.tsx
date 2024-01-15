@@ -1,4 +1,5 @@
-import { AuthContainer, Button, TextField } from "@/common";
+import { AuthContainer } from "@/common";
+import { EmailForm } from "./components";
 
 export default function SignupPage() {
   return (
@@ -13,20 +14,7 @@ export default function SignupPage() {
         <p className="text-xl">
           Ready to watch? Enter your email to create or restart your membership.
         </p>
-        <div className="flex flex-col md:flex-row gap-3 w-full lg:w-[40%] items-center">
-          <div className="lg:grow-[10] w-full">
-            <TextField placeholder="Email" theme="transparent" size="large" />
-          </div>
-          <div className="grow">
-            <Button
-              text="start"
-              textVariant="xl"
-              variant="primary"
-              rightIcon="/icons/arrow-right.svg"
-              size="large"
-            />
-          </div>
-        </div>
+        <EmailForm />
       </div>
     </AuthContainer>
   );
