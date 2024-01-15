@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Provider } from "react-redux";
+import store from "@/lib/store";
 import { NavBar } from "@/common";
 import "./globals.css";
 
@@ -18,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-netflix-color-dark text-white`}>
-        <NavBar />
-        {children}
+        <Provider store={store}>
+          <NavBar />
+          {children}
+        </Provider>
       </body>
     </html>
   );
