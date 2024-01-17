@@ -1,7 +1,7 @@
 import { AuthContainer } from "@/common";
 import { EmailForm } from "./components";
 
-export default function SignupPage() {
+export default function SignUpPage() {
   return (
     <AuthContainer>
       <div className="flex flex-col gap-5 h-[90vh]  items-center justify-center m-5 lg:m-0">

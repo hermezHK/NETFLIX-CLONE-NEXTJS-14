@@ -1,10 +1,11 @@
 "use client";
+
 import { TextField, Button, Form } from "@/common";
 import useForm from "@/common/hooks/useForm";
 import { FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
-import { setData } from "@/lib/store/slices/user";
+import { setData } from "@/lib/slices/user";
 
 export default function EmailForm() {
   const { values, handleInputChange } = useForm({
@@ -41,7 +42,7 @@ export default function EmailForm() {
       <div className="grow">
         <Button
           text="start"
-          textVariant="xl"
+          textVariant="2xl"
           variant="primary"
           rightIcon="/icons/arrow-right.svg"
           size="large"

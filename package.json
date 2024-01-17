@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
-    "@supabase/ssr": "^0.0.10",
-    "@supabase/supabase-js": "^2.38.5",
+    "@supabase/ssr": "^0.0.8",
+    "@supabase/supabase-js": "^2.38.4",
+    "axios": "^1.6.5",
     "classnames": "^2.3.2",
     "next": "14.0.1",
     "react": "^18",
