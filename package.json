@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
     "@reduxjs/toolkit": "^2.0.1",
     "@supabase/ssr": "^0.0.8",
     "@supabase/supabase-js": "^2.38.4",
