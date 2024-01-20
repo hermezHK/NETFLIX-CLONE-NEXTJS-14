@@ -8,22 +8,22 @@ interface Props {
   placeholder?: string;
   id?: string;
   value?: string;
-  theme: Theme;
+  theme?: Theme;
   error?: string;
-  size: Size;
+  size?: Size;
   onBlur?: () => void;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function TextField({
   name,
-  type,
+  type = "text",
   placeholder,
   id,
   value,
-  theme,
+  theme = "dark",
   error,
-  size,
+  size = "medium",
   onBlur,
   onChange,
 }: Props) {
@@ -52,12 +52,12 @@ export default function TextField({
   return (
     <>
       <input
-        id={id}
-        type={type}
         name={name}
         value={value}
         onChange={onChange}
         onBlur={onBlur}
+        type={type}
+        id={id}
         placeholder={placeholder}
         className={`${inputStyles} ${color[theme]} ${sizes[size]}`}
       />
@@ -67,9 +67,3 @@ export default function TextField({
     </>
   );
 }
-
-TextField.defaultProps = {
-  type: "text",
-  theme: "dark",
-  size: "medium",
-};

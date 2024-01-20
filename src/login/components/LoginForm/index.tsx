@@ -2,10 +2,13 @@
 import { Form, TextField, Button } from "@/common";
 import useForm from "@/common/hooks/useForm";
 import { FormEvent } from "react";
-import { supabase } from "@/lib/supabase/client";
-import { create } from "@/lib/services";
+import { post } from "@/lib/services";
+import { showToast } from "@/common/utils/toast";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
+  const router = useRouter();
+
   const { values, handleInputChange, errors, handleValidate } = useForm({
     email: "",
     password: "",
@@ -13,37 +16,18 @@ export default function LoginForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    handleValidate();
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      ...values,
-    });
-    console.log("user", data);
+    if (!handleValidate()) return;
 
-    if (error) {
-      alert(error.message);
+    const { ok, body } = await post({ url: "auth", body: { ...values } });
+
+    if (!ok) {
+      showToast({ title: body, icon: "error" });
       return;
     }
 
-    const response = await create({
-      url: "auth",
-      body: {
-        access_token: data.session?.access_token,
-        refresh_token: data.session?.refresh_token,
-      },
-    });
-
-    console.log(response);
-    //   const { error } = await supabase.auth.signUp({
-    //     ...values,
-    //     options: {
-    //       data: {
-    //         name: "Hermez",
-    //         lastname: "Jaramillo",
-    //       },
-    //     },
-    //   });
-    //   console.log("error", error);
+    showToast({ title: "Ingresando...", icon: "success" });
+    router.push("/browse");
   };
 
   return (
@@ -66,7 +50,7 @@ export default function LoginForm() {
         error={errors.password}
         onBlur={() => handleValidate("password")}
       />
-      <Button text="Sign in" variant="primary" type="submit" />
+      <Button text="Iniciar sesión" type="submit" variant="primary" />
     </Form>
   );
 }

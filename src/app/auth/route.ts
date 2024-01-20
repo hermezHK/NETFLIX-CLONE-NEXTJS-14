@@ -3,25 +3,26 @@ import { getServerClient } from "@/lib/supabase/server";
 import { cookies } from "next/headers";
 
 export async function POST(req: Request) {
-    const { access_token, refresh_token } = await req.json();
-    const supabase = getServerClient();
+  const body = await req.json();
 
-    const { data, error } = await supabase.auth.setSession({
-        access_token,
-        refresh_token,
-    });
+  const supabase = getServerClient();
 
-    if (error) {
-        return NextResponse.json({
-            ok: false,
-            body: "error",
-        });
-    }
+  const { data, error } = await supabase.auth.signInWithPassword({ ...body });
 
-    cookies().set("user", JSON.stringify(data.user));
+  if (error) {
+    return NextResponse.json(
+      {
+        ok: false,
+        body: error.message,
+      },
+      { status: 500 }
+    );
+  }
 
-    return NextResponse.json({
-        ok: true,
-        body: data,
-    });
+  cookies().set("user", JSON.stringify(data.user));
+
+  return NextResponse.json({
+    ok: true,
+    body: data,
+  });
 }

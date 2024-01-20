@@ -31,7 +31,9 @@ export default function useForm<T>(inputs: T) {
           AuthErrors[value as keyof typeof AuthErrors],
         ])
     );
+
     setErrors(inputErrors as T);
+    return Object.values(inputErrors).length === 0;
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {

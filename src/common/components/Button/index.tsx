@@ -5,10 +5,10 @@ interface Props {
   type?: ButtonVariant;
   onClick?: () => void;
   text?: string;
-  variant: Variant;
-  size: Size;
-  textVariant: TextVariant;
-  leftIcon?: string;
+  variant?: Variant;
+  size?: Size;
+  textVariant?: TextVariant;
+  lefIcon?: string;
   rightIcon?: string;
 }
 
@@ -20,10 +20,10 @@ export default function Button({
   text,
   type,
   onClick,
-  variant,
-  size,
-  textVariant,
-  leftIcon,
+  variant = "default",
+  size = "medium",
+  textVariant = "sm",
+  lefIcon,
   rightIcon,
 }: Props) {
   const colors: Color = {
@@ -32,11 +32,11 @@ export default function Button({
     secondary: "bg-netflix-gray text-white",
     danger: "bg-red-500 text-white",
     warning: "bg-yellow-500 text-black",
-    success: "bg-blue-500 tex-white",
+    success: "bg-green-500 text-white",
     info: "bg-blue-500 text-white",
     light: "bg-netflix-light text-white",
     dark: "bg-netflix-dark text-white",
-    transparent: "bg-netflix-color-gray-light/80 text-white",
+    transparent: "bg-netflix-color-gray-light/70 text-white",
   };
 
   const sizes = {
@@ -51,15 +51,9 @@ export default function Button({
       onClick={onClick}
       className={`${colors[variant]} ${sizes[size]} rounded font-semibold w-full flex items-center justify-center gap-2`}
     >
-      {leftIcon && <Image src={leftIcon} alt="icon" width={24} height={24} />}
+      {lefIcon && <Image src={lefIcon} alt="icon" width={24} height={24} />}
       <span className={`text-${textVariant}`}>{text}</span>
       {rightIcon && <Image src={rightIcon} alt="icon" width={24} height={24} />}
     </button>
   );
 }
-
-Button.defaultProps = {
-  variant: "default",
-  textVariant: "sm",
-  size: "medium",
-};

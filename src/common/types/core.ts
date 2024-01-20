@@ -1,4 +1,3 @@
-import { Provider } from "react-redux";
 export type Variant =
   | "primary"
   | "default"
