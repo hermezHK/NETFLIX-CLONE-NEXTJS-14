@@ -7,7 +7,7 @@ interface HttpRequest {
 }
 
 const config = axios.create({
-  baseURL: "/api/",
+  baseURL: "/",
   headers: {
     "Content-Type": "application/json",
   },
