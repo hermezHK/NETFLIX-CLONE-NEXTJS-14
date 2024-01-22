@@ -22,11 +22,11 @@ export default function LoginForm() {
     const { ok, body } = await post({ url: "auth", body: { ...values } });
 
     if (!ok) {
-      showToast({ title: body, icon: "error" });
+      showToast({ title: body.message, icon: "error" });
       return;
     }
 
-    showToast({ title: "Ingresando...", icon: "success" });
+    showToast({ title: "Waiting...", icon: "success" });
     router.push("/browse");
   };
 

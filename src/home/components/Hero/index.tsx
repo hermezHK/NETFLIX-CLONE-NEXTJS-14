@@ -39,10 +39,10 @@ export default function Hero({ isHasVideo }: Props) {
           about nature.
         </p>
         <div className="flex justify-between w-full md:w-3/4 gap-5 mt-3">
-          <Button text="Play" leftIcon="/icons/play.svg" textVariant="md" />
+          <Button text="Play" lefIcon="/icons/play.svg" textVariant="md" />
           <Button
             text="Info"
-            leftIcon="/icons/info.svg"
+            lefIcon="/icons/info.svg"
             variant="transparent"
             textVariant="md"
           />
